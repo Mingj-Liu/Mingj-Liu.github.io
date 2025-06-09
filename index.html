@@ -284,6 +284,40 @@
             float: right;
         }
         
+        /* Experience Section */
+        .experience-item {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .experience-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-company {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .experience-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            float: right;
+        }
+        
         /* Publications Section */
         .publications {
             background: var(--bg-primary);
@@ -366,32 +400,6 @@
         
         .github-link:hover {
             color: var(--primary-color);
-        }
-        
-        /* Experience Section */
-        .experience-item {
-            background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 15px;
-            box-shadow: var(--shadow-md);
-            border-left: 4px solid var(--gradient-2);
-        }
-        
-        .experience-title {
-            font-weight: 600;
-            color: var(--text-primary);
-            margin-bottom: 0.5rem;
-        }
-        
-        .experience-company {
-            color: var(--primary-color);
-            font-weight: 600;
-        }
-        
-        .experience-date {
-            color: var(--text-light);
-            font-size: 0.9rem;
-            float: right;
         }
         
         /* Footer */
@@ -482,8 +490,8 @@
     <section class="hero">
         <div class="container">
             <div class="hero-content fade-in-up">
-                    <img src="./portfolYOU_files/photo.jpeg" alt="Mingju Liu" class="profile-image">	
-		    <h1>Mingju Liu</h1>
+                <img src="./portfolYOU_files/photo.jpeg" alt="Mingju Liu" class="profile-image">
+                <h1>Mingju Liu</h1>
                 <p class="subtitle">PhD Student in Computer Engineering</p>
                 <p class="subtitle">University of Maryland, College Park</p>
                 
@@ -580,7 +588,7 @@
                     <h3 class="year-title">2025</h3>
                     <div class="publication-item">
                         <div class="publication-title">
-                            <a href="#">SGSS: Streaming 6-DoF Navigation of Gaussian Splat Scenes</a>
+                            <a href="https://dl.acm.org/doi/pdf/10.1145/3712676.3714437">SGSS: Streaming 6-DoF Navigation of Gaussian Splat Scenes</a>
                         </div>
                         <div class="publication-authors">
                             Mufeng Zhu, <strong>Mingju Liu</strong>, Cunxi Yu, Cheng-Hsin Hsu, Yao Liu
@@ -595,7 +603,7 @@
                     <h3 class="year-title">2024</h3>
                     <div class="publication-item">
                         <div class="publication-title">
-                            <a href="https://arxiv.org/abs/2407.18110">MapTune: Advancing ASIC Technology Mapping via Reinforcement Learning Guided Library Tuning</a>
+                            <a href="https://dl.acm.org/doi/pdf/10.1145/3676536.3676762">MapTune: Advancing ASIC Technology Mapping via Reinforcement Learning Guided Library Tuning</a>
                         </div>
                         <div class="publication-authors">
                             <strong>Mingju Liu</strong>, Daniel Robinson, Yingjie Li, Cunxi Yu
@@ -653,10 +661,6 @@
                             IEEE/ACM 42st 2023 International Conference on Computer-Aided Design (ICCAD'23)
                         </div>
                     </div>
-                </div>
-            </div>
-        </section>
-
                 </div>
             </div>
         </section>
