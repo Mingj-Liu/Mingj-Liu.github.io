@@ -1,0 +1,719 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mingju Liu - PhD Student</title>
+    <meta name="description" content="PhD Student in Computer Engineering at University of Maryland, College Park. Research in hardware-software co-design and EDA.">
+    
+    <!-- Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary-color: #2563eb;
+            --secondary-color: #1e40af;
+            --accent-color: #3b82f6;
+            --text-primary: #1f2937;
+            --text-secondary: #6b7280;
+            --text-light: #9ca3af;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8fafc;
+            --bg-card: rgba(255, 255, 255, 0.8);
+            --border-color: #e5e7eb;
+            --gradient-1: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            --gradient-2: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+            --gradient-3: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);
+            --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.05);
+            --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.1);
+            --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.1);
+            --shadow-xl: 0 20px 25px -5px rgb(0 0 0 / 0.1);
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--text-primary);
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+        
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1rem 0;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--text-secondary);
+            font-weight: 500;
+            transition: color 0.3s ease;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Hero Section */
+        .hero {
+            padding: 120px 0 80px;
+            background: var(--gradient-1);
+            color: white;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="25" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="75" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="75" cy="25" r="1" fill="rgba(255,255,255,0.1)"/><circle cx="25" cy="75" r="1" fill="rgba(255,255,255,0.1)"/></svg>');
+            animation: float 20s infinite linear;
+        }
+        
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+            100% { transform: translateY(0px); }
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        
+        .profile-image {
+            width: 280px;
+            height: 280px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 4px solid rgba(255, 255, 255, 0.3);
+            margin-bottom: 2rem;
+            transition: transform 0.3s ease;
+            box-shadow: var(--shadow-xl);
+        }
+        
+        .profile-image:hover {
+            transform: scale(1.05);
+        }
+        
+        .hero h1 {
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #fff, #e0e7ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+        
+        .contact-info {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-top: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .contact-item a {
+            color: inherit;
+            text-decoration: none;
+        }
+        
+        /* Main Content */
+        .main-content {
+            background: var(--bg-secondary);
+            position: relative;
+        }
+        
+        .section {
+            padding: 4rem 0;
+        }
+        
+        .section-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            text-align: center;
+            margin-bottom: 3rem;
+            background: var(--gradient-1);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        /* About Section */
+        .about-content {
+            background: var(--bg-card);
+            padding: 3rem;
+            border-radius: 20px;
+            box-shadow: var(--shadow-lg);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+        
+        .about-text {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--text-secondary);
+            margin-bottom: 2rem;
+        }
+        
+        .about-text a {
+            color: var(--primary-color);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        
+        .about-text a:hover {
+            text-decoration: underline;
+        }
+        
+        .cv-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--gradient-1);
+            color: white;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .cv-button:hover {
+            transform: translateY(-2px);
+            box-shadow: var(--shadow-xl);
+            color: white;
+        }
+        
+        /* Education Section */
+        .education-list {
+            display: grid;
+            gap: 1.5rem;
+        }
+        
+        .education-item {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .education-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .education-degree {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .education-school {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .education-year {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            float: right;
+        }
+        
+        /* Experience Section */
+        .experience-item {
+            background: var(--bg-card);
+            padding: 2rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            border-left: 4px solid var(--accent-color);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-bottom: 1.5rem;
+        }
+        
+        .experience-item:hover {
+            transform: translateY(-5px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .experience-title {
+            font-weight: 600;
+            font-size: 1.1rem;
+            color: var(--text-primary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .experience-company {
+            color: var(--primary-color);
+            font-weight: 600;
+        }
+        
+        .experience-date {
+            color: var(--text-light);
+            font-size: 0.9rem;
+            float: right;
+        }
+        
+        /* Publications Section */
+        .publications {
+            background: var(--bg-primary);
+        }
+        
+        .year-group {
+            margin-bottom: 3rem;
+        }
+        
+        .year-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 2px solid var(--accent-color);
+        }
+        
+        .publication-item {
+            background: var(--bg-card);
+            padding: 2rem;
+            margin-bottom: 1.5rem;
+            border-radius: 15px;
+            box-shadow: var(--shadow-md);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            border: 1px solid var(--border-color);
+        }
+        
+        .publication-item:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-lg);
+        }
+        
+        .publication-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-title a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+        
+        .publication-title a:hover {
+            text-decoration: underline;
+        }
+        
+        .publication-authors {
+            color: var(--text-secondary);
+            margin-bottom: 0.5rem;
+        }
+        
+        .publication-venue {
+            color: var(--text-light);
+            font-style: italic;
+            margin-bottom: 1rem;
+        }
+        
+        .publication-media {
+            margin-top: 1rem;
+        }
+        
+        .publication-media img,
+        .publication-media video {
+            max-width: 100%;
+            border-radius: 10px;
+            box-shadow: var(--shadow-md);
+        }
+        
+        .github-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--text-secondary);
+            text-decoration: none;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .github-link:hover {
+            color: var(--primary-color);
+        }
+        
+        /* Footer */
+        .footer {
+            background: var(--text-primary);
+            color: white;
+            text-align: center;
+            padding: 2rem 0;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+            
+            .hero .subtitle {
+                font-size: 1rem;
+            }
+            
+            .contact-info {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .about-content {
+                padding: 2rem;
+            }
+            
+            .section {
+                padding: 2rem 0;
+            }
+            
+            .education-year,
+            .experience-date {
+                float: none;
+                display: block;
+                margin-top: 0.5rem;
+            }
+        }
+        
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 0.8s ease-out;
+        }
+        
+        /* Scroll animations */
+        .scroll-reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+        
+        .scroll-reveal.revealed {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <nav class="nav container">
+            <a href="#" class="logo">Mingju Liu</a>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#education">Education</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#publications">Publications</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content fade-in-up">
+                <img src="./source_files/photo.jpeg" alt="Mingju Liu" class="profile-image">
+                <h1>Mingju Liu</h1>
+                <p class="subtitle">PhD Student in Computer Engineering</p>
+                <p class="subtitle">University of Maryland, College Park</p>
+                
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <a href="mailto:mliu9867@umd.edu">mliu9867@umd.edu</a>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-graduation-cap"></i>
+                        <a href="https://scholar.google.com/citations?hl=en&user=g_E1zMgAAAAJ">Google Scholar</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <main class="main-content">
+        <section id="about" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">About</h2>
+                <div class="about-content scroll-reveal">
+                    <p class="about-text">
+                        <a href="https://scholar.google.com/citations?hl=en&user=g_E1zMgAAAAJ">Mingju Liu</a> is currently a PhD student in 
+                        <a href="https://ece.umd.edu">Computer Engineering at the University of Maryland, College Park</a>, supervised by 
+                        <a href="https://ycunxi.github.io/cunxiyu/">Prof. Cunxi Yu</a>. His research focuses on the hardware-software co-design 
+                        of deep learning algorithms for addressing challenges in Electronic Design Automation (EDA). His research projects span 
+                        across logic synthesis, high-level synthesis, and combinatorial optimization.
+                    </p>
+                    <p class="about-text">
+                        Mingju received his M.S. degree from Rutgers University in 2021 and his B.S. degree from the University of Electronic 
+                        Science and Technology of China in 2020. He was selected for the DAC Young Fellows Program in 2023 and received the 
+                        ICCAD Student Scholar Travel Grant in 2024.
+                    </p>
+                    <a href="./source_files/Mingju_CV.pdf" class="cv-button">
+                        <i class="fas fa-download"></i>
+                        Download CV
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="education" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Education</h2>
+                <div class="education-list">
+                    <div class="education-item scroll-reveal">
+                        <div class="education-year">2023 - present</div>
+                        <div class="education-degree">Doctor of Philosophy, Computer Engineering</div>
+                        <div class="education-school">University of Maryland, College Park</div>
+                    </div>
+                    <div class="education-item scroll-reveal">
+                        <div class="education-year">2022 - 2023</div>
+                        <div class="education-degree">Doctor of Philosophy, Computer Engineering</div>
+                        <div class="education-school">University of Utah</div>
+                    </div>
+                    <div class="education-item scroll-reveal">
+                        <div class="education-year">2019 - 2022</div>
+                        <div class="education-degree">M.S., Electrical and Computer Engineering</div>
+                        <div class="education-school">Rutgers University</div>
+                    </div>
+                    <div class="education-item scroll-reveal">
+                        <div class="education-year">2016 - 2020</div>
+                        <div class="education-degree">B.S., Electrical and Computer Engineering</div>
+                        <div class="education-school">University of Electronic Science and Technology of China</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="experience" class="section">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Experience</h2>
+                <div class="education-list">
+                    <div class="experience-item scroll-reveal">
+                        <div class="experience-date">05/2025 - 08/2025</div>
+                        <div class="experience-title">Graduate Intern</div>
+                        <div class="experience-company">Cadence Design Systems, San Jose, CA</div>
+                    </div>
+                    <div class="experience-item scroll-reveal">
+                        <div class="experience-date">07/2018 - 08/2018</div>
+                        <div class="experience-title">Visiting Student</div>
+                        <div class="experience-company">James Cook University NB-IOT Lab, Cairns, Australia</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="publications" class="section publications">
+            <div class="container">
+                <h2 class="section-title scroll-reveal">Publications</h2>
+                
+                <div class="year-group scroll-reveal">
+                    <h3 class="year-title">2025</h3>
+                    <div class="publication-item">
+                        <div class="publication-title">
+                            <a href="#">SGSS: Streaming 6-DoF Navigation of Gaussian Splat Scenes</a>
+                        </div>
+                        <div class="publication-authors">
+                            Mufeng Zhu, <strong>Mingju Liu</strong>, Cunxi Yu, Cheng-Hsin Hsu, Yao Liu
+                        </div>
+                        <div class="publication-venue">
+                            ACM 16th 2025 Multimedia Systems Conference (MMsys'25)
+                        </div>
+                    </div>
+                </div>
+
+                <div class="year-group scroll-reveal">
+                    <h3 class="year-title">2024</h3>
+                    <div class="publication-item">
+                        <div class="publication-title">
+                            <a href="https://arxiv.org/abs/2407.18110">MapTune: Advancing ASIC Technology Mapping via Reinforcement Learning Guided Library Tuning</a>
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Mingju Liu</strong>, Daniel Robinson, Yingjie Li, Cunxi Yu
+                        </div>
+                        <div class="publication-venue">
+                            IEEE/ACM 43st 2024 International Conference on Computer-Aided Design (ICCAD'24)
+                        </div>
+                        <div class="publication-media">
+                            <img src="./source_files/s838a_65_7nm.gif" alt="MapTune visualization" style="max-width: 60%; height: auto;">
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">
+                            <a href="https://arxiv.org/abs/2406.06593">Differentiable Combinatorial Scheduling at Scale</a>
+                        </div>
+                        <div class="publication-authors">
+                            <strong>Mingju Liu</strong>, Yingjie Li*, Jiaqi Yin, Zhiru Zhang, Cunxi Yu
+                        </div>
+                        <div class="publication-venue">
+                            International Conference on Machine Learning (ICML'24)
+                        </div>
+                        <div class="publication-media">
+                            <img src="./source_files/1000_sparse_combine_full.gif" alt="Differentiable Scheduler visualization" style="max-width: 60%; height: auto;">
+                        </div>
+                    </div>
+                    
+                    <div class="publication-item">
+                        <div class="publication-title">
+                            <a href="https://arxiv.org/abs/2310.07846">DAG-aware Synthesis Orchestration</a>
+                        </div>
+                        <div class="publication-authors">
+                            Yingjie Li, <strong>Mingju Liu</strong>, Alan Mishchenko, Haoxing Ren, Cunxi Yu
+                        </div>
+                        <div class="publication-venue">
+                            IEEE Transactions on Computer-Aided Design of Integrated Circuits and Systems (TCAD)
+                        </div>
+                        <a href="https://github.com/berkeley-abc/abc" class="github-link">
+                            <i class="fab fa-github"></i>
+                            orchestrate@ABC
+                        </a>
+                    </div>
+                </div>
+
+                <div class="year-group scroll-reveal">
+                    <h3 class="year-title">2023</h3>
+                    <div class="publication-item">
+                        <div class="publication-title">
+                            <a href="https://arxiv.org/abs/2311.05722">Verilog-to-PyG -- A Framework for Graph Learning and Augmentation on RTL Designs</a>
+                        </div>
+                        <div class="publication-authors">
+                            Yingjie Li, <strong>Mingju Liu</strong>, Alan Mishchenko, Cunxi Yu
+                        </div>
+                        <div class="publication-venue">
+                            IEEE/ACM 42st 2023 International Conference on Computer-Aided Design (ICCAD'23)
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2025 Mingju Liu. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Scroll reveal animation
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('revealed');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.scroll-reveal').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(255, 255, 255, 0.98)';
+            } else {
+                header.style.background = 'rgba(255, 255, 255, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
